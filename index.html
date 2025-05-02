@@ -153,135 +153,127 @@
             </div>
         </div>
     </section>
-    
-    <section class="section process" id="process">
-        <div class="container">
-            <div class="section-title">
-                <h2 data-i18n="process.title">The Formdrill Process</h2>
-                <p data-i18n="process.subtitle">Simple, efficient and precise in just three steps</p>
-            </div>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3 data-i18n="process.drill">Drill</h3>
-                    <p data-i18n="process.drill_desc">Create a bushing from the base material</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3 data-i18n="process.tap">Tap</h3>
-                    <p data-i18n="process.tap_desc">Form threads without chips</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3 data-i18n="process.assemble">Assemble</h3>
-                    <p data-i18n="process.assemble_desc">Connection ready for assembly</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Interactive Process Visualization - Add before the "Process" section -->
-<section class="section" id="interactive-process">
+    <!-- Interactive Process Visualization -->
+<section class="section" id="process">
     <div class="container">
         <div class="section-title">
-            <h2 data-i18n="interactive.title">Interactive Formdrill Process</h2>
-            <p data-i18n="interactive.subtitle">Explore each step of the revolutionary Formdrill technology</p>
+            <h2 data-i18n="process.title">The Formdrill Process</h2>
+            <p data-i18n="process.subtitle">Simple, efficient and precise in just three steps</p>
         </div>
         
-        <div class="process-interactive-container">
-            <div class="process-visualization">
-                <div class="process-display">
-                    <div class="process-image-container">
-                        <img src="https://images.pexels.com/photos/5853930/pexels-photo-5853930.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Formdrill Process" class="process-image" id="process-image">
-                    </div>
-                    <div class="process-stage-indicator">
-                        <div class="stage-button active" data-step="1" data-i18n="interactive.step1">Drill</div>
-                        <div class="stage-button" data-step="2" data-i18n="interactive.step2">Tap</div>
-                        <div class="stage-button" data-step="3" data-i18n="interactive.step3">Assemble</div>
-                    </div>
+        <div class="process-visualization">
+            <div class="process-display">
+                <div class="process-image-container">
+                    <img src="https://images.pexels.com/photos/5853930/pexels-photo-5853930.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Formdrill Process" class="process-image" id="process-image">
+                    <!-- Hotspots entfernt -->
                 </div>
-                <div class="process-info">
-                    <div class="process-info-content active" data-step="1">
-                        <h3 data-i18n="interactive.step1">Step 1: Drill</h3>
-                        <p data-i18n="interactive.step1_desc">The Formdrill tool is used to create a bushing directly from the base material. This unique process displaces material rather than removing it, forming a reinforced area with increased wall thickness.</p>
-                        <ul class="process-benefits">
-                            <li data-i18n="interactive.step1_benefit1">Material thickness is increased by up to 3 times</li>
-                            <li data-i18n="interactive.step1_benefit2">No chips or waste material</li>
-                            <li data-i18n="interactive.step1_benefit3">Creates a perfect foundation for strong threads</li>
-                        </ul>
-                        <div class="process-specs">
-                            <div class="spec-item">
-                                <span class="spec-label" data-i18n="interactive.time">Time:</span>
-                                <span class="spec-value">10-15 sec</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-i18n="interactive.tool">Tool:</span>
-                                <span class="spec-value">Formdrill</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-i18n="interactive.rpm">RPM:</span>
-                                <span class="spec-value">1000-3000</span>
-                            </div>
-                        </div>
+                <div class="process-stage-indicator">
+                    <div class="stage-button active" data-step="1">
+                        <span class="stage-label">Drill</span>
                     </div>
-
-                    <div class="process-info-content" data-step="2">
-                        <h3 data-i18n="interactive.step2">Step 2: Tap</h3>
-                        <p data-i18n="interactive.step2_desc">The Formtap creates threads within the bushing that was formed in step 1. Unlike conventional taps that cut material away, the Formtap forms the threads by displacing material, resulting in stronger threads.</p>
-                        <ul class="process-benefits">
-                            <li data-i18n="interactive.step2_benefit1">Higher strength compared to conventional cutting taps</li>
-                            <li data-i18n="interactive.step2_benefit2">No chips to remove or clean up</li>
-                            <li data-i18n="interactive.step2_benefit3">Thread profile optimized for high load capacity</li>
-                        </ul>
-                        <div class="process-specs">
-                            <div class="spec-item">
-                                <span class="spec-label" data-i18n="interactive.time">Time:</span>
-                                <span class="spec-value">10-15 sec</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-i18n="interactive.tool">Tool:</span>
-                                <span class="spec-value">Formtap</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-i18n="interactive.rpm">RPM:</span>
-                                <span class="spec-value">200-400</span>
-                            </div>
-                        </div>
+                    <div class="stage-button" data-step="2">
+                        <span class="stage-label">Tap</span>
                     </div>
-
-                    <div class="process-info-content" data-step="3">
-                        <h3 data-i18n="interactive.step3">Step 3: Assemble</h3>
-                        <p data-i18n="interactive.step3_desc">Once the threads are formed, the connection is ready for assembly. The strengthened bushing and formed threads provide a secure, reliable connection point that can withstand high loads and vibration.</p>
-                        <ul class="process-benefits">
-                            <li data-i18n="interactive.step3_benefit1">Up to 90% cost savings vs. conventional methods</li>
-                            <li data-i18n="interactive.step3_benefit2">Connection strength comparable to welded nuts</li>
-                            <li data-i18n="interactive.step3_benefit3">No additional components required</li>
-                        </ul>
-                        <div class="process-specs">
-                            <div class="spec-item">
-                                <span class="spec-label" data-i18n="interactive.time">Time:</span>
-                                <span class="spec-value">5 sec</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-i18n="interactive.torque">Torque:</span>
-                                <span class="spec-value">High</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-i18n="interactive.reliability">Reliability:</span>
-                                <span class="spec-value">100%</span>
-                            </div>
-                        </div>
+                    <div class="stage-button" data-step="3">
+                        <span class="stage-label">Assemble</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="interactive-cta">
-                <p data-i18n="interactive.interested">Interested in Formdrill?</p>
-                <a href="#contact" class="btn" data-i18n="interactive.contact_us">Contact us</a>
+            <div class="process-info">
+                <div class="process-info-content active" data-step="1">
+                    <h3 data-i18n="interactive.step1">Step 1: Drill</h3>
+                    <p data-i18n="interactive.step1_desc">The Formdrill tool is used to create a bushing directly from the base material. This unique process displaces material rather than removing it, forming a reinforced area with increased wall thickness.</p>
+                    <ul class="process-benefits">
+                        <li data-i18n="interactive.step1_benefit1">Material thickness is increased by up to 3 times</li>
+                        <li data-i18n="interactive.step1_benefit2">No chips or waste material</li>
+                        <li data-i18n="interactive.step1_benefit3">Creates a perfect foundation for strong threads</li>
+                    </ul>
+                    <div class="process-specs">
+                        <div class="spec-item">
+                            <span class="spec-label" data-i18n="interactive.time">Time:</span>
+                            <span class="spec-value">10-15 sec</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label" data-i18n="interactive.tool">Tool:</span>
+                            <span class="spec-value">Formdrill</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label" data-i18n="interactive.rpm">RPM:</span>
+                            <span class="spec-value">1000-3000</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Integrierter CTA für Step 1 -->
+                    <div class="process-cta">
+                        <p>Interested in our revolutionary threading solution?</p>
+                        <a href="#contact" class="btn">Contact us</a>
+                    </div>
+                </div>
+
+                <div class="process-info-content" data-step="2">
+                    <h3 data-i18n="interactive.step2">Step 2: Tap</h3>
+                    <p data-i18n="interactive.step2_desc">The Formtap creates threads within the bushing that was formed in step 1. Unlike conventional taps that cut material away, the Formtap forms the threads by displacing material, resulting in stronger threads.</p>
+                    <ul class="process-benefits">
+                        <li data-i18n="interactive.step2_benefit1">Higher strength compared to conventional cutting taps</li>
+                        <li data-i18n="interactive.step2_benefit2">No chips to remove or clean up</li>
+                        <li data-i18n="interactive.step2_benefit3">Thread profile optimized for high load capacity</li>
+                    </ul>
+                    <div class="process-specs">
+                        <div class="spec-item">
+                            <span class="spec-label" data-i18n="interactive.time">Time:</span>
+                            <span class="spec-value">10-15 sec</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label" data-i18n="interactive.tool">Tool:</span>
+                            <span class="spec-value">Formtap</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label" data-i18n="interactive.rpm">RPM:</span>
+                            <span class="spec-value">200-400</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Integrierter CTA für Step 2 -->
+                    <div class="process-cta">
+                        <p>Want to learn more about our threading technology?</p>
+                        <a href="#contact" class="btn">Request information</a>
+                    </div>
+                </div>
+
+                <div class="process-info-content" data-step="3">
+                    <h3 data-i18n="interactive.step3">Step 3: Assemble</h3>
+                    <p data-i18n="interactive.step3_desc">Once the threads are formed, the connection is ready for assembly. The strengthened bushing and formed threads provide a secure, reliable connection point that can withstand high loads and vibration.</p>
+                    <ul class="process-benefits">
+                        <li data-i18n="interactive.step3_benefit1">Up to 90% cost savings vs. conventional methods</li>
+                        <li data-i18n="interactive.step3_benefit2">Connection strength comparable to welded nuts</li>
+                        <li data-i18n="interactive.step3_benefit3">No additional components required</li>
+                    </ul>
+                    <div class="process-specs">
+                        <div class="spec-item">
+                            <span class="spec-label" data-i18n="interactive.time">Time:</span>
+                            <span class="spec-value">5 sec</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label" data-i18n="interactive.torque">Torque:</span>
+                            <span class="spec-value">High</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label" data-i18n="interactive.reliability">Reliability:</span>
+                            <span class="spec-value">100%</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Integrierter CTA für Step 3 -->
+                    <div class="process-cta">
+                        <p>Ready to improve your production process?</p>
+                        <a href="#contact" class="btn">Get started now</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    </section>
+</section>
     
     <section class="section materials" id="materials">
         <div class="container">
