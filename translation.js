@@ -454,8 +454,8 @@ function addTranslationsForInteractive() {
             "rpm": "RPM",
             "torque": "Torque",
             "reliability": "Reliability",
-            "interested": "Interested in this innovative technology?",
-            "contact_us": "Contact us for a demo"
+            "interested": "Interested in Formdrill?",
+            "contact_us": "Contact us"
         },
         "calculator": {
             "title": "Cost Savings Calculator",
@@ -509,8 +509,8 @@ function addTranslationsForInteractive() {
             "rpm": "Drehzahl",
             "torque": "Drehmoment",
             "reliability": "Zuverlässigkeit",
-            "interested": "Interessiert an dieser innovativen Technologie?",
-            "contact_us": "Kontaktieren Sie uns für eine Demo"
+            "interested": "Interessiert an Formdrill?",
+            "contact_us": "Kontaktieren Sie uns"
         },
         "calculator": {
             "title": "Kostenersparnis-Rechner",
