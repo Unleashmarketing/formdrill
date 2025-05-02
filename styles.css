@@ -480,63 +480,6 @@ nav ul li a:hover {
     color: #777;
 }
 
-/* Process section styling */
-.process {
-    background-color: var(--light);
-    position: relative;
-    overflow: hidden;
-    padding-top: 100px;
-}
-
-.process-steps {
-    display: flex;
-    justify-content: space-between;
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.process-steps::before {
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: 60px;
-    right: 60px;
-    height: 4px;
-    background-color: var(--primary);
-    z-index: 1;
-}
-
-.step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    z-index: 2;
-    width: 120px;
-}
-
-.step-number {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: var(--primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--white);
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.step h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: var(--secondary);
-    font-weight: 600;
-}
-
 /* Materials section styling */
 .materials {
     background-color: var(--white);
@@ -838,427 +781,7 @@ footer {
     line-height: 1.6;
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .comparison-wrapper {
-        flex-direction: column;
-    }
-    
-    .comparison-slider {
-        height: 350px;
-    }
-    
-    .benefits-list {
-        grid-template-columns: 1fr;
-    }
-    
-    .formdrill-overview {
-        flex-direction: column;
-    }
-    
-    .materials-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .advantages-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    nav ul {
-        margin-top: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    nav ul li {
-        margin: 5px 10px;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-    
-    .process-steps {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-    
-    .process-steps::before {
-        top: 40px;
-        bottom: 40px;
-        left: 50%;
-        width: 4px;
-        height: auto;
-    }
-    
-    .materials-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .advantages-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .btn {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .comparison-slider {
-        height: 300px;
-    }
-    
-    .faq-question h3 {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .section-title h2 {
-        font-size: 2rem;
-    }
-    
-    .comparison-slider {
-        height: 250px;
-    }
-    
-    .comparison-label {
-        font-size: 0.8rem;
-        padding: 6px 10px;
-    }
-    
-    .handle-circle {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-/* Interactive Process Visualization - NEU */
-.process-interactive-container {
-    margin-bottom: 60px;
-}
-
-.process-visualization {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-bottom: 40px;
-    background-color: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    overflow: hidden;
-}
-
-.process-display {
-    position: relative;
-}
-
-.process-image-container {
-    position: relative;
-    height: 400px; /* Fixed height */
-    overflow: hidden;
-}
-
-.process-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: opacity 0.3s ease;
-}
-
-/* Remove any opacity transitions that might interfere */
-.process-image {
-    opacity: 1 !important;
-}
-
-.process-stage-indicator {
-    display: flex;
-    background-color: var(--light);
-    justify-content: space-between;
-    padding: 0;
-    position: relative;
-    height: 70px; 
-}
-
-.process-stage-indicator::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background-color: #ddd;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
-.stage-button {
-    flex: 1;
-    text-align: center;
-    padding: 25px 10px 15px;
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.stage-button::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--light);
-    border: 4px solid #ddd;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.stage-button.active {
-    color: var(--primary);
-    font-weight: 700;
-}
-
-.stage-button.active::before {
-    background-color: var(--white);
-    border-color: var(--primary);
-}
-
-.stage-button::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 4px;
-    background-color: var(--primary);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.stage-button.active::after {
-    transform: scaleX(1);
-}
-
-.process-info {
-    padding: 30px;
-    height: 400px;
-    overflow-y: auto;
-}
-
-.process-info-content {
-    display: none;
-}
-
-.process-info-content.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.process-info-content h3 {
-    color: var(--primary);
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.process-info-content p {
-    color: var(--secondary);
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.process-benefits {
-    list-style: none;
-    margin-bottom: 25px;
-}
-
-.process-benefits li {
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 10px;
-}
-
-.process-benefits li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-    font-weight: bold;
-}
-
-.process-specs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    background-color: var(--light);
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.spec-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.spec-label {
-    font-weight: 500;
-    color: var(--secondary);
-    margin-bottom: 5px;
-}
-
-.spec-value {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--primary);
-}
-
-/* Verbesserte Interested in Formdrill Section */
-.interactive-cta {
-    text-align: center;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.interactive-cta::before {
-    content: '';
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(227, 36, 18, 0.1) 0%, transparent 70%);
-    top: -125px;
-    right: -125px;
-    border-radius: 50%;
-    z-index: 0;
-}
-
-.interactive-cta::after {
-    content: '';
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, rgba(227, 36, 18, 0.1) 0%, transparent 70%);
-    bottom: -75px;
-    left: -75px;
-    border-radius: 50%;
-    z-index: 0;
-}
-
-.interactive-cta:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.interactive-cta p {
-    position: relative;
-    font-size: 1.4rem;
-    margin-bottom: 25px;
-    font-weight: 600;
-    color: var(--secondary);
-    z-index: 1;
-}
-
-.interactive-cta p::before {
-    content: '"';
-    font-size: 3rem;
-    color: rgba(227, 36, 18, 0.1);
-    position: absolute;
-    top: -15px;
-    left: -20px;
-    font-family: Georgia, serif;
-}
-
-.interactive-cta p::after {
-    content: '"';
-    font-size: 3rem;
-    color: rgba(227, 36, 18, 0.1);
-    position: absolute;
-    bottom: -40px;
-    right: -20px;
-    font-family: Georgia, serif;
-}
-
-.interactive-cta .btn {
-    position: relative;
-    z-index: 1;
-    min-width: 200px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 14px 30px;
-    transition: all 0.3s;
-    box-shadow: 0 5px 15px rgba(227, 36, 18, 0.3);
-}
-
-.interactive-cta .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(227, 36, 18, 0.4);
-}
-
-@media (max-width: 768px) {
-    .interactive-cta {
-        padding: 30px 20px;
-    }
-    
-    .interactive-cta p {
-        font-size: 1.2rem;
-    }
-}
-
-/* Animation for process steps */
-.step-transition {
-    animation: stepTransition 1s ease;
-}
-
-@keyframes stepTransition {
-    0% {
-        opacity: 0.7;
-        transform: translateX(-30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Cost Savings Calculator - NEU */
+/* Cost Savings Calculator */
 .calculator {
     background-color: var(--light);
     position: relative;
@@ -1272,7 +795,7 @@ footer {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     padding: 30px;
     max-width: 900px;
-    margin: 0 auto;
+margin: 0 auto;
 }
 
 .calculator-intro {
@@ -1447,51 +970,351 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-/* Responsive adjustments for Interactive Process and Calculator */
+/* ÜBERARBEITETE Formdrill Process-Sektion */
+.process-visualization {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.process-display {
+    position: relative;
+}
+
+.process-image-container {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.process-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.5s ease;
+    opacity: 1 !important;
+}
+
+/* Verbesserte Stage Buttons */
+.process-stage-indicator {
+    display: flex;
+    background-color: var(--light);
+    justify-content: space-between;
+    position: relative;
+    height: 70px;
+}
+
+.process-stage-indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #ddd;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.stage-button {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s;
+}
+
+.stage-button::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--white);
+    border: 4px solid #ddd;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: all 0.3s;
+}
+
+.stage-button.active::before {
+    background-color: var(--primary);
+    border-color: var(--white);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 10px rgba(227, 36, 18, 0.3);
+}
+
+/* Label für Stage Buttons */
+.stage-label {
+    position: relative;
+    top: -30px;
+    font-weight: 600;
+    color: var(--secondary);
+    transition: all 0.3s;
+}
+
+.stage-button.active .stage-label {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Red bar for active step */
+.stage-button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stage-button.active::after {
+    transform: scaleX(1);
+}
+
+.process-info {
+    padding: 30px;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.process-info-content {
+    display: none;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.process-info-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.process-info-content h3 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.process-info-content p {
+    color: var(--secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.process-benefits {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.process-benefits li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.process-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.process-specs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    background-color: var(--light);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.spec-label {
+    font-weight: 500;
+    color: var(--secondary);
+    margin-bottom: 5px;
+}
+
+.spec-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+/* Neuer integrierter CTA */
+.process-cta {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+    border-left: 4px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+.process-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.process-cta p {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--secondary);
+}
+
+.process-cta .btn {
+    display: inline-block;
+    min-width: 180px;
+}
+
+/* Animation for process steps */
+.step-transition {
+    animation: stepTransition 1s ease;
+}
+
+@keyframes stepTransition {
+    0% {
+        opacity: 0.7;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive adjustments */
 @media (min-width: 992px) {
     .process-visualization {
         flex-direction: row;
-        height: 460px; /* Set a fixed height for the whole container */
+        height: 460px;
     }
     
     .process-display {
         width: 50%;
-        height: 100%; /* Make it take full height of parent */
+        height: 100%;
     }
     
     .process-info {
         width: 50%;
-        height: 100%; /* Make it take full height of parent */
-        overflow-y: auto; /* Allow scrolling for content if needed */
+        height: 100%;
+        overflow-y: auto;
     }
     
     .process-image-container {
-        height: calc(100% - 60px); /* Subtract the height of the stage indicator */
+        height: calc(100% - 70px);
+    }
+}
+
+@media (max-width: 992px) {
+    .comparison-wrapper {
+        flex-direction: column;
+    }
+    
+    .comparison-slider {
+        height: 350px;
+    }
+    
+    .benefits-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .formdrill-overview {
+        flex-direction: column;
+    }
+    
+    .materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .materials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .comparison-slider {
+        height: 300px;
+    }
+    
+    .faq-question h3 {
+        font-size: 1.1rem;
+    }
+    
     .process-image-container {
         height: 300px;
     }
     
     .process-specs {
         grid-template-columns: 1fr;
-    }
-    
-    .hotspot-1 {
-        top: 20%;
-        left: 20%;
-    }
-
-    .hotspot-2 {
-        top: 50%;
-        left: 50%;
-    }
-
-    .hotspot-3 {
-        top: 20%;
-        left: 80%;
     }
     
     .process-info {
@@ -1515,13 +1338,29 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 @media (max-width: 480px) {
-    .process-image-container {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .comparison-slider {
         height: 250px;
     }
     
-    .process-hotspot {
-        width: 25px;
-        height: 25px;
-        font-size: 12px;
+    .comparison-label {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    
+    .handle-circle {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .process-image-container {
+        height: 250px;
     }
 }
