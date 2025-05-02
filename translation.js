@@ -455,7 +455,7 @@ function addTranslationsForInteractive() {
             "torque": "Torque",
             "reliability": "Reliability",
             "interested": "Interested in this innovative technology?",
-            "contact_us": "Contact us for a demo"
+            "contact_us": "Contact us"
         },
         "calculator": {
             "title": "Cost Savings Calculator",
