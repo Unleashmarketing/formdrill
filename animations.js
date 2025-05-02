@@ -197,9 +197,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the comparison slider
     initComparisonSlider();
     
-    // Initialize the FAQ accordion
-    initFaqAccordion();
-    
     // Make sure to update translations if language is changed
     if (typeof i18next !== 'undefined') {
         i18next.on('languageChanged', function() {
@@ -273,56 +270,4 @@ function initComparisonSlider() {
     }
 }
 
-function initFaqAccordion() {
-    console.log("Initialisiere FAQ Accordion...");
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    if (!faqItems.length) {
-        console.warn("Keine FAQ-Elemente gefunden!");
-        return;
-    }
-    
-    console.log(`${faqItems.length} FAQ-Elemente gefunden`);
-    
-    faqItems.forEach((item, index) => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        
-        if (!question || !answer) {
-            console.warn(`FAQ-Question oder Answer für Item ${index + 1} nicht gefunden`);
-            return;
-        }
-        
-        // Messe die Höhe des Antwort-Elements
-        const answerHeight = answer.scrollHeight;
-        
-        // Event-Listener für Klick-Ereignis hinzufügen
-        question.addEventListener('click', (e) => {
-            // Verhindere Standardverhalten
-            e.preventDefault();
-            
-            // Prüfe, ob dieses Item bereits aktiv ist
-            const isActive = item.classList.contains('active');
-            
-            // Schließe zunächst alle Items
-            faqItems.forEach(faqItem => {
-                faqItem.classList.remove('active');
-                faqItem.querySelector('.faq-answer').style.maxHeight = '0px';
-                faqItem.querySelector('.faq-toggle').textContent = '+';
-            });
-            
-            // Wenn das geklickte Item vorher nicht aktiv war, öffne es
-            if (!isActive) {
-                item.classList.add('active');
-                answer.style.maxHeight = answerHeight + 'px';
-                item.querySelector('.faq-toggle').textContent = '×';
-            }
-        });
-    });
-    
-    // Öffne das erste Element standardmäßig, wenn gewünscht
-    // faqItems[0].classList.add('active');
-    // faqItems[0].querySelector('.faq-answer').style.maxHeight = faqItems[0].querySelector('.faq-answer').scrollHeight + 'px';
-    // faqItems[0].querySelector('.faq-toggle').textContent = '×';
-}
 
