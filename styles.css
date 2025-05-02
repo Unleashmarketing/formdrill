@@ -950,10 +950,6 @@ footer {
     }
 }
 
-/* ==========================================
-   NEUE UND VERBESSERTE STYLES AB HIER
-   ========================================== */
-
 /* Interactive Process Visualization - NEU */
 .process-interactive-container {
     margin-bottom: 60px;
@@ -993,55 +989,13 @@ footer {
     opacity: 1 !important;
 }
 
-.process-hotspot {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: var(--primary);
-    border: 3px solid var(--white);
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    cursor: pointer;
-    z-index: 2;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-weight: bold;
-}
-
-.process-hotspot::after {
-    content: attr(data-step);
-}
-
-.process-hotspot:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 20px rgba(227, 36, 18, 0.5);
-}
-
-.hotspot-1 {
-    top: 30%;
-    left: 25%;
-}
-
-.hotspot-2 {
-    top: 55%;
-    left: 50%;
-}
-
-.hotspot-3 {
-    top: 25%;
-    left: 75%;
-}
-
 .process-stage-indicator {
     display: flex;
     background-color: var(--light);
     justify-content: space-between;
     padding: 0;
     position: relative;
-    height: 60px; /* Fixed height for the indicator */
+    height: 70px; 
 }
 
 .process-stage-indicator::before {
@@ -1059,7 +1013,7 @@ footer {
 .stage-button {
     flex: 1;
     text-align: center;
-    padding: 15px 10px;
+    padding: 25px 10px 15px;
     cursor: pointer;
     position: relative;
     z-index: 2;
@@ -1192,16 +1146,100 @@ footer {
     color: var(--primary);
 }
 
+/* Verbesserte Interested in Formdrill Section */
 .interactive-cta {
     text-align: center;
-    background-color: var(--light);
-    padding: 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 40px;
     border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.interactive-cta::before {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(227, 36, 18, 0.1) 0%, transparent 70%);
+    top: -125px;
+    right: -125px;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.interactive-cta::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(227, 36, 18, 0.1) 0%, transparent 70%);
+    bottom: -75px;
+    left: -75px;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.interactive-cta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .interactive-cta p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    position: relative;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: var(--secondary);
+    z-index: 1;
+}
+
+.interactive-cta p::before {
+    content: '"';
+    font-size: 3rem;
+    color: rgba(227, 36, 18, 0.1);
+    position: absolute;
+    top: -15px;
+    left: -20px;
+    font-family: Georgia, serif;
+}
+
+.interactive-cta p::after {
+    content: '"';
+    font-size: 3rem;
+    color: rgba(227, 36, 18, 0.1);
+    position: absolute;
+    bottom: -40px;
+    right: -20px;
+    font-family: Georgia, serif;
+}
+
+.interactive-cta .btn {
+    position: relative;
+    z-index: 1;
+    min-width: 200px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 14px 30px;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(227, 36, 18, 0.3);
+}
+
+.interactive-cta .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(227, 36, 18, 0.4);
+}
+
+@media (max-width: 768px) {
+    .interactive-cta {
+        padding: 30px 20px;
+    }
+    
+    .interactive-cta p {
+        font-size: 1.2rem;
+    }
 }
 
 /* Animation for process steps */
