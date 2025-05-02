@@ -26,7 +26,10 @@ function initProcessVisualization() {
     const infoContents = document.querySelectorAll('.process-info-content');
     const processImage = document.getElementById('process-image');
     
-    if (!stageButtons.length || !infoContents.length) return;
+    if (!stageButtons.length || !infoContents.length || !processImage) {
+        console.error('Process visualization initialization failed: Missing elements');
+        return;
+    }
     
     // Define images for each step (replace with your actual images)
     const stepImages = {
@@ -38,96 +41,86 @@ function initProcessVisualization() {
     // Initial active step
     let activeStep = 1;
     
-// Function to change the active step
-function changeStep(stepNumber) {
-    // Convert to number to ensure proper comparison
-    stepNumber = parseInt(stepNumber);
-    
-    // Update active state for buttons
-    stageButtons.forEach(button => {
-        const buttonStep = parseInt(button.getAttribute('data-step'));
-        if (buttonStep === stepNumber) {
-            button.classList.add('active');
-        } else {
-            button.classList.remove('active');
+    // Function to change the active step
+    function changeStep(stepNumber) {
+        // Convert to number to ensure proper comparison
+        stepNumber = parseInt(stepNumber);
+        
+        // Update active state for buttons
+        stageButtons.forEach(button => {
+            const buttonStep = parseInt(button.getAttribute('data-step'));
+            if (buttonStep === stepNumber) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+        
+        // Update content sections
+        infoContents.forEach(content => {
+            const contentStep = parseInt(content.getAttribute('data-step'));
+            if (contentStep === stepNumber) {
+                content.classList.add('active');
+                // Add animation class
+                content.classList.add('step-transition');
+                // Remove animation class after animation completes
+                setTimeout(() => {
+                    content.classList.remove('step-transition');
+                }, 1000);
+            } else {
+                content.classList.remove('active');
+            }
+        });
+        
+        // Update image
+        if (processImage && stepImages[stepNumber]) {
+            processImage.src = stepImages[stepNumber];
         }
-    });
-    
-    // Update content sections
-    infoContents.forEach(content => {
-        const contentStep = parseInt(content.getAttribute('data-step'));
-        if (contentStep === stepNumber) {
-            content.classList.add('active');
-            // Add animation class
-            content.classList.add('step-transition');
-            // Remove animation class after animation completes
-            setTimeout(() => {
-                content.classList.remove('step-transition');
-            }, 1000);
-        } else {
-            content.classList.remove('active');
-        }
-    });
-    
-    // Update image with cross-fade transition
-    if (processImage && stepImages[stepNumber]) {
-        // Create a temporary copy of the current image that will remain in place
-        const oldImage = processImage.cloneNode(true);
-        oldImage.style.position = 'absolute';
-        oldImage.style.top = '0';
-        oldImage.style.left = '0';
-        oldImage.style.zIndex = '1';
-        oldImage.classList.add('fade-out');
         
-        // Add the old image to the container
-        processImage.parentNode.appendChild(oldImage);
-        
-        // Update the source of the main image
-        processImage.src = stepImages[stepNumber];
-        processImage.style.opacity = '0';
-        
-        // After a short delay, fade in the new image
-        setTimeout(() => {
-            processImage.style.opacity = '1';
-            processImage.style.zIndex = '2'; // Ensure it's above the old image
-            
-            // Remove the old image after fade completes
-            setTimeout(() => {
-                if (oldImage.parentNode) {
-                    oldImage.parentNode.removeChild(oldImage);
-                }
-            }, 500);
-        }, 50);
+        // Update active step
+        activeStep = stepNumber;
     }
     
-    // Update active step
-    activeStep = stepNumber;
+    // Add click event listeners to stage buttons
+    stageButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const stepNumber = this.getAttribute('data-step');
+            changeStep(stepNumber);
+        });
+    });
+    
+    // Add click event listeners to hotspots
+    processHotspots.forEach(hotspot => {
+        hotspot.addEventListener('click', function() {
+            const stepNumber = this.getAttribute('data-step');
+            changeStep(stepNumber);
+        });
+    });
+    
+    // Optional: Auto-advance through steps
+    let autoplayInterval;
+    
+    function startAutoplay() {
+        autoplayInterval = setInterval(() => {
+            let nextStep = activeStep + 1;
+            if (nextStep > 3) nextStep = 1;
+            changeStep(nextStep);
+        }, 8000); // Change step every 8 seconds
+    }
+    
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+    
+    // Start autoplay
+    startAutoplay();
+    
+    // Stop autoplay when user interacts with the component
+    document.querySelector('.process-visualization').addEventListener('mouseenter', stopAutoplay);
+    
+    // Optional: Resume autoplay when user leaves the component
+    document.querySelector('.process-visualization').addEventListener('mouseleave', startAutoplay);
 }
-
-// Add this CSS rule via JavaScript to ensure proper transition
-document.addEventListener('DOMContentLoaded', function() {
-    const styleEl = document.createElement('style');
-    styleEl.textContent = `
-        .fade-out {
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-        .fade-out.fade-out {
-            opacity: 0;
-        }
-        
-        .process-image-container {
-            position: relative;
-        }
-        
-        @media (min-width: 992px) {
-            .process-visualization {
-                height: 500px;
-            }
-        }
-    `;
-    document.head.appendChild(styleEl);
-});
 
 // Cost Savings Calculator Functionality
 function initCostCalculator() {
