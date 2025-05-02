@@ -38,7 +38,7 @@ function initProcessVisualization() {
     // Initial active step
     let activeStep = 1;
     
-    // Function to change the active step
+// Function to change the active step
 function changeStep(stepNumber) {
     // Convert to number to ensure proper comparison
     stepNumber = parseInt(stepNumber);
@@ -69,63 +69,65 @@ function changeStep(stepNumber) {
         }
     });
     
-    // Update image with smoother transition
+    // Update image with cross-fade transition
     if (processImage && stepImages[stepNumber]) {
-        // Fade out
+        // Create a temporary copy of the current image that will remain in place
+        const oldImage = processImage.cloneNode(true);
+        oldImage.style.position = 'absolute';
+        oldImage.style.top = '0';
+        oldImage.style.left = '0';
+        oldImage.style.zIndex = '1';
+        oldImage.classList.add('fade-out');
+        
+        // Add the old image to the container
+        processImage.parentNode.appendChild(oldImage);
+        
+        // Update the source of the main image
+        processImage.src = stepImages[stepNumber];
         processImage.style.opacity = '0';
+        
+        // After a short delay, fade in the new image
         setTimeout(() => {
-            // Change source
-            processImage.src = stepImages[stepNumber];
-            // Add active class for animation
-            processImage.classList.add('active');
-            // Fade in
             processImage.style.opacity = '1';
-        }, 300);
+            processImage.style.zIndex = '2'; // Ensure it's above the old image
+            
+            // Remove the old image after fade completes
+            setTimeout(() => {
+                if (oldImage.parentNode) {
+                    oldImage.parentNode.removeChild(oldImage);
+                }
+            }, 500);
+        }, 50);
     }
     
     // Update active step
     activeStep = stepNumber;
-    }
-    // Add click event listeners to stage buttons
-    stageButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const stepNumber = this.getAttribute('data-step');
-            changeStep(stepNumber);
-        });
-    });
-    
-    // Add click event listeners to hotspots
-    processHotspots.forEach(hotspot => {
-        hotspot.addEventListener('click', function() {
-            const stepNumber = this.getAttribute('data-step');
-            changeStep(stepNumber);
-        });
-    });
-    
-    // Optional: Auto-advance through steps
-    let autoplayInterval;
-    
-    function startAutoplay() {
-        autoplayInterval = setInterval(() => {
-            let nextStep = activeStep + 1;
-            if (nextStep > 3) nextStep = 1;
-            changeStep(nextStep);
-        }, 8000); // Change step every 8 seconds
-    }
-    
-    function stopAutoplay() {
-        clearInterval(autoplayInterval);
-    }
-    
-    // Start autoplay
-    startAutoplay();
-    
-    // Stop autoplay when user interacts with the component
-    document.querySelector('.process-visualization').addEventListener('mouseenter', stopAutoplay);
-    
-    // Optional: Resume autoplay when user leaves the component
-    document.querySelector('.process-visualization').addEventListener('mouseleave', startAutoplay);
 }
+
+// Add this CSS rule via JavaScript to ensure proper transition
+document.addEventListener('DOMContentLoaded', function() {
+    const styleEl = document.createElement('style');
+    styleEl.textContent = `
+        .fade-out {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        .fade-out.fade-out {
+            opacity: 0;
+        }
+        
+        .process-image-container {
+            position: relative;
+        }
+        
+        @media (min-width: 992px) {
+            .process-visualization {
+                height: 500px;
+            }
+        }
+    `;
+    document.head.appendChild(styleEl);
+});
 
 // Cost Savings Calculator Functionality
 function initCostCalculator() {
