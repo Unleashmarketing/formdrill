@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formdrill</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="animation.css">
+</head>
+<body>
+    <script src="https://unpkg.com/i18next@21.6.10/i18next.min.js"></script>
+    <script type="text/javascript" src='main.js'></script>
+    <script type="text/javascript" src='translation.js'></script>
+    <script type="text/javascript" src='animations.js'></script>
+    <script type="text/javascript" src='interactive.js'></script>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://www.formdrill.com/images/formdrill%20new%202019%20voor%20site.jpg?crc=341560179" alt="Formdrill Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#features" data-i18n="nav.about">About Formdrill</a></li>
+                    <li><a href="#process" data-i18n="nav.process">Process</a></li>
+                    <li><a href="#materials" data-i18n="nav.materials">Materials</a></li>
+                    <li><a href="#advantages" data-i18n="nav.advantages">Advantages</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <div class="language-dropdown">
+                    <div class="selected-language">
+                        <img src="data:image/png;base64,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" alt="English Flag" class="flag-icon">
+                        <span>English</span>
+                        <i class="dropdown-arrow">▼</i>
+                    </div>
+                    <ul class="language-dropdown-menu">
+                        <li data-lang="en" class="active">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAA4VBMVEX///+yIjQ8O26vECjUkJfx2NuvCSWwGC3EZ2/CWWXgrrPoxsmuAB/BUl/78/S4NEQ2NWsxL2ienrRxa4w1PHAvLWd9MFW2ITGsq70rKmU9PG9BQHE0M2onJmM5N2zi4unt7fJeXYWtABpKSXgiIWH29vmSkqtXVoCEhKHKytbp6e+1tcbBwc/V1d9kY4mjo7h5eJjQhI315ee5PEvku7++SFYaGF3Ldn9QT32Xlq4TEVt9fJuzpraFfJecaX7GZ258bItOQW9wYYReSXSdh5yRaYMHAlgNClmjlKiGR2eBOFv88eBwAAAKHklEQVR4nO2da5ubuBmGNUwmM0nTFJmQGhDCHgMGc8zJY9bbQ7bbpu3//0EVSLYl4XTzIV40k/f5Mpkn+Lp4kODVLQkPQiAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAR6cop+/kvrfFf99W93U+nh3cv3Wr78Fw8T+/vq7fXtZLp+dfviRsr3+u8htX5Dv3mArjdv/3w1pW7vH44BN5+JenI7fxxwfSbi7syFOB43dcKrq+cfXosW/GyrZ+mVu1Ect1yN0nh5MPaqw9WaPuHVrYj4i9KClNo0ST1KVS9Emat5ZIccrHsr5BDuGZDw6vquD/hzqDTC0qlTVC1r59Q+lHmd5lm1UzcoXzqOFLB2lgUq2NG+IQmv7j+yhJ+VgHQZ8b47o9KZb7iXnrozdRbcy06e3SaDleypKQlvP7E6oTahRd15Xx3XruTZpOi9HVa8knnVSvaI33u5T0zppawRb1CqPUctu+7PMlY8smdeqV4LnDGvUD23Y17jWeYkvH6G/qEFZE/SJMuR+uT08qStkPqADatFWyXq9fGiTRstsEh4/2p63X9C0gNFtFe5wmEjbi/u0RXz3HlL5eP83Mfe3JE9uiwoJuVy+I38+gcT9BEdizvpeHv4/cOe8OAk4z8Dm3lYeClvo4BIx4m+HvTXRXjD/WyCjk0YR61W+dnJbpyRF6Lx8CZYjD3DEtphHKDySyg/QUkY79D8pxCrXo2akeegdKt4xiW091G0QUm0KU8jUjsTXnG6Ve10Ey0G79Rk9kx4c5MTWpgX61JGiKFEsIIg97+hRCA0J5KJ08FrtLJjWEILr9m/y61yjnjHvEL1PId5jVotvZZ5neqZl5CkKEIL9XGBZ70X6+ddochVPK9gXqWNjYxLiKt5WC/Up2m4mYV1UitVkG662FkslUuBkzTeJ+IOPv6PaQkDx7VsX6QRBLyqe4/X9APZ9h5ZLYXHP7teY+bVynHmJRyuvYA9L99J7Xb0LN1zq2DknQjYuITHpDbxGQHbtup5KBt5a9S6uscIGNvU5ITU2TuMdp02kwasbevMUFW3e9Wbo9xp95biFah02tY3OKG1q7gvURXdCSreS96SU3EiPZxoveDecOvav740QuNeGjdIp13q9e1RBXJNp2FPxZUve5yKczKEfvP21XMTNEpo2X1N1wgYP1oCvroaJ2QE7JRopVQ8RsB1Pibg+gwBL08EbGpCXFISd5lS+1eFTeJGI+DSPXlcjIA9EhZLY2YTe50SEjG7FvRNgHnNJ6kg4L6pBAHjGT4dR8RxM35BfOk48xLGm70+KUW/kYBpkIwJ2LCEPnF3DC0wlVYsfOKtURErYOtjBhdz1bMIg4s01i+PWQlp29MuqqLilJAKKpa9nop72o3m0nxxKrxGbUazElqYT2ErtEs4Fc9lz91zT24wkg1epzWiYQnPE3DvFRrtfo2AZzoBs4p/bYKOCVNGsToBN72nEXBxhoDLcwRs//OZEToyftXE600rzwOz+t1tlwuVgK0o3dYb1bMX2dZJZJIaroVhI++gp93gQLH8bFeyV9vCw18hYOEd8d+0hN9AwGPvkRIwwQHqQqJwBCEuSj1iq8cxAlY9m+Dd0TM1IXXSrEHRPkulytim2RxVWaZQcZqxh84+y6TP7tOsRHnGPVMTHgk4k2r6+kDAkifWihNp6H1YK+YPJ2MT0rifwlbJllNxpfbcbZ8gx0rPHai4DI3upYKAK20NuKfd0lO8YTJfo2J3xrw5P87chF6+cAqk7qjxGO2WSN0XFUbRiIrdTbSsEmxqwuMaMMVepqwBW7s5JV4nbjnRL4MCn7zDGnDDvKY2dDYRCzbw+yGZWFsinZjNwCcPN4KdJI809skT/21ewjMEzMZj43VhF6mrFkN7JmPPsIR2GK9Q+S9lDZh5jIC/xOq68NZBzZdYXQPetqj7ScNii/z7xggd1oAXCwZ5i0RZAx68TVLKa8AJ9+Q14K4/jvnaGrBh86WET2HP5YKA+RT2TPZcTsqdXCQ8TsWpWkyMI2DyVQJWPbevlnONgPv54pnOh6YlxB3KzxBwjhItTcG8MQHnYwI2LmHVbYNIJWB3k21XG2XXEyPgbLvWCJguWkbKYp/Y8SKZljBYuha1Be0uBQEzsqVEI2Dm2QFHX7rkn92tiGX7/Bdam7MLmksh4CPFrs/QruQd2riSdtQeZz6MTXg8056AZzoBY0bAoUbA7hrtdQJ2T1RsasKegOcoytJUpd3BkwjY4gTMPOmzgoC5Z2pCa5UPQ51kLzWOoGJlvXfNvYUzpuKo5rugJ3yjRNKYnkJOwOoacL/ymVOl53o9Fedqzx3GogWn4jf/+aMRGick/Qz2OQLOv4GA+9QFPw6bNfKW5OWb5XxEwNG6QOqbNGFUrUvt43hT7XJzCVjILigJM20NuLFtL1XXgIM5tsNUWwOeubY3W5pOwP3ddgDajo9U/GF3sy96Hx+zDevC4s48ErB0nHkJ40V2joBHHiNgnYrpIyDgwGYgkcfElypeYLs1Kpnny57XonlIAtXb92OEQL1PzUpInQMBS9XtQMWF1KZZImhXehcoFZ62BmxWQoaHQ7GeyVUQcypOFY9TcSrjE3YGAs6M3snOIvY7njUCHjxtDRifWQN2h13Qxu8RnqEySUZ3EvNGa8AlitTmYgTMPNMTkioNV9VeWwPO4lWkErAf7eN1pBOwEy8X8g5bExMGPe3ipUrAjGyZx09cbB1a7dhxtiDgmv/YsdJoHz3b0IRnaVfuiWc8NwrUZrNkAsbNayM0GrXZ2GUEHGNl3yjGmBGw5nlLlKkewR4jYOG9+e+fjNCIgPdNV6BNN2ukeeCs6dijpJvNJCpOe69injQ3zLyceU3H+dBQAqbl0HkTecuez6lYec0i4AS8kb0V96Kd0QmtuGfBStmDz6k4dxUv7ldDS1dhi3Ag4NDQ/aUHfTMB99z/fwjY3ISMdneNtoeUeUGB1G9QYAQc6FSMF7ldip3R5ia05x712r3SI3czj4Z7hXYZFcc0zDQC7kIap6bugj5omIOyteInUbFynE6PEhWbm/B7CRL+XkL4UnLfTj2a4UKziymfekTK9fsO80EgEAgEAoFAoK/oxVMXmnq7y8WFpgbUiwsSPn5BwscvSPj49QMknPqVlosLTf1a0sU19bAYBAKBQCAQCAQaNPVXcV1caOqvU7u4fgACnvoELi5I+PgFCR+/IOHj1w8wXzr1195fXFMPi0EgEAgEAoFAoEFT/63Xiwt9MuGv9l5O95/Qs+upEfWiun6Gbu6nPomL6v4GoU+3U5/FBdX/bXX08Sk34v3H/ml693TvxOu7oV68/vBU++ntB/EW8OsPz6c+l4vo+YfTa84P90+vGW/vH+SRzc2L21dmfKHq99H1q9sX+r7L9y/fPdw9FT28e/n+cgNdEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAk2l/wEUciDDl/H1vgAAAABJRU5ErkJggg==" alt="English Flag" class="flag-icon">
+                            <span>English</span>
+                        </li>
+                        <li data-lang="de">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAACzCAMAAACKPpgZAAAAMFBMVEUICAjeCAj/uAgNDQ0ACQkjCAjiDAzaAAb7rg4HDQwlCwviDhHgBgfaAArZAAb9ug3WK8QwAAABgUlEQVR4nO3QyXECARDAwFkw4AOz+WfrBEZv8+iOQKW5spvrsHOmOFOcKc4UZ4ozxZniTHGmOFOcKc4UZ4ozxZniTHGmOFOcKc4UZ4ozxZniTHGmOFOcKc4UZ4ozxZniTHGmOFOcKc4UZ4ozxZniTHGmOFOcKc4UZ4ozxZniTHGmOFOcKc4UZ4ozxZniTPn6YDXfN1bzc2c1x/Ng40xxpjhTnCnOFGeKM8WZ4kxxpjhTnCnOFGeKM8WZ4kxxpjhTnCnOFGeKM8WZ4kxxpjhTnCnOFGeKM8WZ4kxxpjhTnCnOFGeKM8WZ4kxxpjhTnCnOFGeKM8WZ4kxxpjhTnCnOFGeKM8WZMr/H68FiPtnNeV7YzH8HvC1nijPFmeJMcaY4U5wpzhRnijPFmeJMcaY4U5wpzhRnijPFmeJMcaY4U5wpzhRnijPFmeJMcaY4U5wpzhRnijPFmeJMcaY4U5wpzhRnijPFmeJMcaY4U5wpzhRnijPFmeJMcaY4U5wpzhRnyh/2OOefnQ9lrwAAAABJRU5ErkJggg==" alt="Deutsch Flag" class="flag-icon">
+                            <span>Deutsch</span>
+                        </li>
+                        <li data-lang="fr">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARUAAAC2CAMAAADAz+kkAAAAXVBMVEX///8AXaPvSDUAXKPwVUMTaKnuOSH+9vX2pZyLrtAAUp2nxt/y+PvwVUHuSTT///7zTDTxYE8icq8RZ6oAYqdhlsOoydujyN/MjZT/+vX8p50AUJ6MrtGSstGqxtt0Gq91AAABuElEQVR4nO3UyVKDQABFUdoODsGGmMEMav7/MyVRdy55u3OLNQWnXne37ft+1wfa7faH4X1IdByO19Omrdr8rJautfbW9bXWUkpdvFLWX69dqvPl8SHWqutLrI+XnMrT8+P4MGZQxhZTuW1lVplyKj9/kGCZVWqIpdR1aCvTNP1u5fYs3c9WcirzCYpM5VclsZJ7SZUa28qtu0rmXhmjWylxlVRU/mtFhQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlSoUKFChQoVKlT+VEIktd5VprTKuHTzO1tMpdy3MkVVxsxUxpY7QbWuP19TKOkTtJs/P9THV+5eOV9yKpvWbftY+8NwHRIdh+P1tGmx3r4BRKMIzh8DgboAAAAASUVORK5CYII=" alt="French Flag" class="flag-icon">
+                            <span>Français</span>
+                        </li>
+                        <li data-lang="es">
+                            <img src="data:image/png;base64,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" alt="Spanish Flag" class="flag-icon">
+                            <span>Español</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section with Video Background -->
+    <section class="hero" id="home">
+        <div class="image-background">
+            <img src="https://media.licdn.com/dms/image/v2/D4D12AQFT9D1VVsYCfQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1721207998975?e=2147483647&v=beta&t=MOIDX-zH9juJ2HrEs3LgHLkMnENfYy2M9BnW1Oq8lVA" alt="Formdrill Hero Background" id="hero-image">
+        </div>
+        <div class="container hero-content">
+            <h1 data-i18n="hero.title">Revolutionary Threading Solution for Thin-Walled Materials J</h1>
+            <p data-i18n="hero.subtitle">Formdrill offers a cost-efficient, time-saving and highly reliable alternative to conventional threading connections. Save up to 90% in costs with stronger connections.</p>
+            <a href="#process" class="btn" data-i18n="hero.button">Discover Our Technology</a>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="about.title">What is Formdrill?</h2>
+                <p data-i18n="about.subtitle">An innovative solution for a classic manufacturing problem</p>
+            </div>
+            
+            <div class="formdrill-overview">
+                <div class="what-is-formdrill">
+                    <p class="lead-text" data-i18n="about.lead">Formdrill is an innovative solution for creating strong threads in thin-walled materials.</p>
+                    
+                    <div class="info-block">
+                        <p data-i18n="about.problem">A common problem in manufacturing is how to get reliable threads in thin-walled materials. Conventional methods like weld nuts or threaded inserts have significant drawbacks in terms of time, cost, complexity, and overall quality.</p>
+                        
+                        <p data-i18n="about.solution">The Formdrill solution provides a simple, proven process:</p>
+                        
+                        <div class="process-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-number">1</div>
+                                <p data-i18n="steps.step1">A bushing is created from the parent material using a Formdrill tool, increasing the thread area</p>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-number">2</div>
+                                <p data-i18n="steps.step2">A Formtap creates strong threads in this bushing without cutting</p>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-number">3</div>
+                                <p data-i18n="steps.step3">The result is a superior thread connection ready for assembly</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="benefits-summary">
+                        <h4 data-i18n="benefits.title">Key Benefits:</h4>
+                        <ul class="benefits-list">
+                            <li><span class="check-icon">✓</span> <span data-i18n="benefits.benefit1">Up to 90% cost savings</span></li>
+                            <li><span class="check-icon">✓</span> <span data-i18n="benefits.benefit2">Stronger connections</span></li>
+                            <li><span class="check-icon">✓</span> <span data-i18n="benefits.benefit3">Faster production cycles</span></li>
+                            <li><span class="check-icon">✓</span> <span data-i18n="benefits.benefit4">No additional components needed</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="video-showcase" id="video">
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe width="800" height="450" src="https://www.youtube.com/embed/Bh9KhYPafk8" 
+                                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                                    gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-caption">
+                            <h4 data-i18n="video.title">See Formdrill in Action</h4>
+                            <p data-i18n="video.subtitle">A quick introduction to the Formdrill process</p>
+                        </div>
+                    </div>
+                </div>    
+            
+            <div class="features">
+                <div class="feature-card">
+                    <img src="https://images.pexels.com/photos/1320737/pexels-photo-1320737.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Problem">
+                    <div class="feature-content">
+                        <h3 data-i18n="features.problem.title">The Problem</h3>
+                        <p data-i18n="features.problem.desc">Conventional methods for threading in thin-walled materials are time-consuming, costly, and often unreliable.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://images.pexels.com/photos/29988967/pexels-photo-29988967.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Solution">
+                    <div class="feature-content">
+                        <h3 data-i18n="features.solution.title">The Solution</h3>
+                        <p data-i18n="features.solution.desc">With Formdrill, you create a bushing directly from the base material that enables a more stable threaded connection - without weld nuts or additional components.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://images.pexels.com/photos/5853930/pexels-photo-5853930.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Result">
+                    <div class="feature-content">
+                        <h3 data-i18n="features.result.title">The Result</h3>
+                        <p data-i18n="features.result.desc">Stronger connections, faster production times, lower costs and higher reliability for all your threading applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section process" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="process.title">The Formdrill Process</h2>
+                <p data-i18n="process.subtitle">Simple, efficient and precise in just three steps</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 data-i18n="process.drill">Drill</h3>
+                    <p data-i18n="process.drill_desc">Create a bushing from the base material</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 data-i18n="process.tap">Tap</h3>
+                    <p data-i18n="process.tap_desc">Form threads without chips</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 data-i18n="process.assemble">Assemble</h3>
+                    <p data-i18n="process.assemble_desc">Connection ready for assembly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Process Visualization - Add before the "Process" section -->
+<section class="section" id="interactive-process">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-i18n="interactive.title">Interactive Formdrill Process</h2>
+            <p data-i18n="interactive.subtitle">Explore each step of the revolutionary Formdrill technology</p>
+        </div>
+        
+        <div class="process-interactive-container">
+            <div class="process-visualization">
+                <div class="process-display">
+                    <div class="process-image-container">
+                        <img src="https://images.pexels.com/photos/5853930/pexels-photo-5853930.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Formdrill Process" class="process-image" id="process-image">
+                        <div class="process-hotspot hotspot-1" data-step="1"></div>
+                        <div class="process-hotspot hotspot-2" data-step="2"></div>
+                        <div class="process-hotspot hotspot-3" data-step="3"></div>
+                    </div>
+                    <div class="process-stage-indicator">
+                        <div class="stage-button active" data-step="1" data-i18n="interactive.step1">Drill</div>
+                        <div class="stage-button" data-step="2" data-i18n="interactive.step2">Tap</div>
+                        <div class="stage-button" data-step="3" data-i18n="interactive.step3">Assemble</div>
+                    </div>
+                </div>
+                <div class="process-info">
+                    <div class="process-info-content active" data-step="1">
+                        <h3 data-i18n="interactive.step1">Step 1: Drill</h3>
+                        <p data-i18n="interactive.step1_desc">The Formdrill tool is used to create a bushing directly from the base material. This unique process displaces material rather than removing it, forming a reinforced area with increased wall thickness.</p>
+                        <ul class="process-benefits">
+                            <li data-i18n="interactive.step1_benefit1">Material thickness is increased by up to 3 times</li>
+                            <li data-i18n="interactive.step1_benefit2">No chips or waste material</li>
+                            <li data-i18n="interactive.step1_benefit3">Creates a perfect foundation for strong threads</li>
+                        </ul>
+                        <div class="process-specs">
+                            <div class="spec-item">
+                                <span class="spec-label" data-i18n="interactive.time">Time:</span>
+                                <span class="spec-value">10-15 sec</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-i18n="interactive.tool">Tool:</span>
+                                <span class="spec-value">Formdrill</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-i18n="interactive.rpm">RPM:</span>
+                                <span class="spec-value">1000-3000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-info-content" data-step="2">
+                        <h3 data-i18n="interactive.step2">Step 2: Tap</h3>
+                        <p data-i18n="interactive.step2_desc">The Formtap creates threads within the bushing that was formed in step 1. Unlike conventional taps that cut material away, the Formtap forms the threads by displacing material, resulting in stronger threads.</p>
+                        <ul class="process-benefits">
+                            <li data-i18n="interactive.step2_benefit1">Higher strength compared to conventional cutting taps</li>
+                            <li data-i18n="interactive.step2_benefit2">No chips to remove or clean up</li>
+                            <li data-i18n="interactive.step2_benefit3">Thread profile optimized for high load capacity</li>
+                        </ul>
+                        <div class="process-specs">
+                            <div class="spec-item">
+                                <span class="spec-label" data-i18n="interactive.time">Time:</span>
+                                <span class="spec-value">10-15 sec</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-i18n="interactive.tool">Tool:</span>
+                                <span class="spec-value">Formtap</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-i18n="interactive.rpm">RPM:</span>
+                                <span class="spec-value">200-400</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-info-content" data-step="3">
+                        <h3 data-i18n="interactive.step3">Step 3: Assemble</h3>
+                        <p data-i18n="interactive.step3_desc">Once the threads are formed, the connection is ready for assembly. The strengthened bushing and formed threads provide a secure, reliable connection point that can withstand high loads and vibration.</p>
+                        <ul class="process-benefits">
+                            <li data-i18n="interactive.step3_benefit1">Up to 90% cost savings vs. conventional methods</li>
+                            <li data-i18n="interactive.step3_benefit2">Connection strength comparable to welded nuts</li>
+                            <li data-i18n="interactive.step3_benefit3">No additional components required</li>
+                        </ul>
+                        <div class="process-specs">
+                            <div class="spec-item">
+                                <span class="spec-label" data-i18n="interactive.time">Time:</span>
+                                <span class="spec-value">5 sec</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-i18n="interactive.torque">Torque:</span>
+                                <span class="spec-value">High</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-i18n="interactive.reliability">Reliability:</span>
+                                <span class="spec-value">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="interactive-cta">
+                <p data-i18n="interactive.interested">Interested in Formdrill?</p>
+                <a href="#contact" class="btn" data-i18n="interactive.contact_us">Contact us</a>
+            </div>
+        </div>
+    </div>
+    </section>
+    
+    <section class="section materials" id="materials">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="materials.title">Compatible Materials</h2>
+                <p data-i18n="materials.subtitle">Formdrill works with various metals and alloys</p>
+            </div>
+            <div class="materials-grid">
+                <div class="material-card">
+                    <div class="material-image">
+                        <img src="https://images.pexels.com/photos/1544946/pexels-photo-1544946.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Steel">
+                    </div>
+                    <div class="material-content">
+                        <h3 data-i18n="materials.steel">Steel</h3>
+                        <p data-i18n="materials.steel_desc">Ideal for structural applications with high strength</p>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <div class="material-image">
+                        <img src="https://images.pexels.com/photos/220237/pexels-photo-220237.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Stainless Steel">
+                    </div>
+                    <div class="material-content">
+                        <h3 data-i18n="materials.stainless">Stainless Steel</h3>
+                        <p data-i18n="materials.stainless_desc">Corrosion resistant for demanding environments</p>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <div class="material-image">
+                        <img src="https://images.pexels.com/photos/2691359/pexels-photo-2691359.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Aluminum">
+                    </div>
+                    <div class="material-content">
+                        <h3 data-i18n="materials.aluminum">Aluminum</h3>
+                        <p data-i18n="materials.aluminum_desc">Lightweight applications with good thermal conductivity</p>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <div class="material-image">
+                        <img src="https://images.pexels.com/photos/1567356/pexels-photo-1567356.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Copper">
+                    </div>
+                    <div class="material-content">
+                        <h3 data-i18n="materials.copper">Copper</h3>
+                        <p data-i18n="materials.copper_desc">Excellent electrical and thermal conductivity</p>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <div class="material-image">
+                        <img src="https://images.pexels.com/photos/2119164/pexels-photo-2119164.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Brass">
+                    </div>
+                    <div class="material-content">
+                        <h3 data-i18n="materials.brass">Brass</h3>
+                        <p data-i18n="materials.brass_desc">Excellent machinability and corrosion resistance</p>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <div class="material-image">
+                        <img src="https://images.pexels.com/photos/2310904/pexels-photo-2310904.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="HSL/DP/AHS">
+                    </div>
+                    <div class="material-content">
+                        <h3 data-i18n="materials.hsl">HSL/DP/AHS</h3>
+                        <p data-i18n="materials.hsl_desc">High-strength alloys for specialized applications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Advantages Section -->
+    <section class="section advantages" id="advantages">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="advantages.title">The advantages of the Formdrill system</h2>
+                <p data-i18n="advantages.subtitle">Why leading companies rely on our technology</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <h3 data-i18n="advantages.cost.title">Cost savings</h3>
+                    <p data-i18n="advantages.cost.desc">Up to 90% cost savings compared to conventional methods</p>
+                </div>
+                <div class="advantage-card">
+                    <h3 data-i18n="advantages.stronger.title">Stronger connections</h3>
+                    <p data-i18n="advantages.stronger.desc">High-load threads for maximum stability</p>
+                </div>
+                <div class="advantage-card">
+                    <h3 data-i18n="advantages.reliability.title">High process reliability</h3>
+                    <p data-i18n="advantages.reliability.desc">Consistent high quality with every connection</p>
+                </div>
+                <div class="advantage-card">
+                    <h3 data-i18n="advantages.faster.title">Faster production</h3>
+                    <p data-i18n="advantages.faster.desc">Shortened production cycles with fewer steps</p>
+                </div>
+                <div class="advantage-card">
+                    <h3 data-i18n="advantages.no_machinery.title">No special machinery</h3>
+                    <p data-i18n="advantages.no_machinery.desc">Usable with standard drill presses or CNC centers</p>
+                </div>
+                <div class="advantage-card">
+                    <h3 data-i18n="advantages.investment.title">Small investment</h3>
+                    <p data-i18n="advantages.investment.desc">Low entry costs for maximum return on investment</p>
+                </div>
+                <div class="advantage-card">
+                    <h3 data-i18n="advantages.thickness.title">Increased material thickness</h3>
+                    <p data-i18n="advantages.thickness.desc">Reinforced material in the connection area</p>
+                </div>
+                <div class="advantage-card">
+                    <h3 data-i18n="advantages.tool_life.title">Long tool life</h3>
+                    <p data-i18n="advantages.tool_life.desc">Durable tools for thousands of applications</p>
+                </div>
+                <div class="advantage-card">
+                    <h3 data-i18n="advantages.chipless.title">Chipless process</h3>
+                    <p data-i18n="advantages.chipless.desc">No chips, no rework, clean process</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Savings Calculator - Add after the "Advantages" section -->
+<section class="section calculator" id="calculator">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-i18n="calculator.title">Cost Savings Calculator</h2>
+            <p data-i18n="calculator.subtitle">See how much you can save with Formdrill technology</p>
+        </div>
+        
+        <div class="calculator-container">
+            <div class="calculator-intro">
+                <p data-i18n="calculator.intro">Use our interactive calculator to estimate your potential cost savings when switching from conventional threading methods to Formdrill technology. Adjust the parameters below to match your specific production scenario.</p>
+            </div>
+            
+            <div class="calculator-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="production-volume" data-i18n="calculator.volume">Annual Production Volume</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="production-volume" min="100" max="1000000" value="10000">
+                            <span class="unit" data-i18n="calculator.units">units</span>
+                        </div>
+                        <input type="range" id="production-volume-range" min="100" max="1000000" value="10000" step="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="connections-per-unit" data-i18n="calculator.connections">Connections per Unit</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="connections-per-unit" min="1" max="100" value="4">
+                            <span class="unit" data-i18n="calculator.connections_unit">connections</span>
+                        </div>
+                        <input type="range" id="connections-per-unit-range" min="1" max="100" value="4">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="conventional-cost" data-i18n="calculator.conventional_cost">Conventional Method Cost</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="conventional-cost" min="0.1" max="10" value="0.85" step="0.05">
+                            <span class="unit">€</span>
+                        </div>
+                        <input type="range" id="conventional-cost-range" min="0.1" max="10" value="0.85" step="0.05">
+                    </div>
+                    <div class="form-group">
+                        <label for="labor-rate" data-i18n="calculator.labor_rate">Labor Rate</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="labor-rate" min="10" max="100" value="30" step="1">
+                            <span class="unit">€/h</span>
+                        </div>
+                        <input type="range" id="labor-rate-range" min="10" max="100" value="30" step="1">
+                    </div>
+                </div>
+                
+                <div class="calculator-comparison">
+                    <div class="method-column conventional">
+                        <h3 data-i18n="calculator.conventional">Conventional Method</h3>
+                        <div class="method-details">
+                            <div class="method-row">
+                                <span data-i18n="calculator.material_cost">Material Cost</span>
+                                <span id="conventional-material-cost">€ 34,000</span>
+                            </div>
+                            <div class="method-row">
+                                <span data-i18n="calculator.labor_cost">Labor Cost</span>
+                                <span id="conventional-labor-cost">€ 20,000</span>
+                            </div>
+                            <div class="method-row total">
+                                <span data-i18n="calculator.total_cost">Total Cost</span>
+                                <span id="conventional-total-cost">€ 54,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-column formdrill">
+                        <h3 data-i18n="calculator.formdrill">Formdrill Method</h3>
+                        <div class="method-details">
+                            <div class="method-row">
+                                <span data-i18n="calculator.material_cost">Material Cost</span>
+                                <span id="formdrill-material-cost">€ 4,000</span>
+                            </div>
+                            <div class="method-row">
+                                <span data-i18n="calculator.labor_cost">Labor Cost</span>
+                                <span id="formdrill-labor-cost">€ 5,000</span>
+                            </div>
+                            <div class="method-row total">
+                                <span data-i18n="calculator.total_cost">Total Cost</span>
+                                <span id="formdrill-total-cost">€ 9,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="savings-results">
+                    <div class="savings-row">
+                        <span data-i18n="calculator.annual_savings">Annual Cost Savings</span>
+                        <span id="annual-savings" class="savings-amount">€ 45,000</span>
+                    </div>
+                    <div class="savings-row">
+                        <span data-i18n="calculator.savings_percentage">Savings Percentage</span>
+                        <span id="savings-percentage" class="savings-amount">83%</span>
+                    </div>
+                </div>
+                
+                <div class="calculator-disclaimer">
+                    <p data-i18n="calculator.disclaimer">Note: This calculator provides an estimate based on typical industry values. Actual savings may vary depending on your specific materials, equipment, and production environment.</p>
+                </div>
+                
+                <div class="calculator-cta">
+                    <button class="btn" id="reset-calculator" data-i18n="calculator.reset">Reset Calculator</button>
+                    <a href="#contact" class="btn" data-i18n="calculator.contact">Get a Detailed Analysis</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 data-i18n="cta.title">See Formdrill for yourself</h2>
+            <p data-i18n="cta.subtitle">Request a free sample or contact us for a consultation on your specific application.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn" data-i18n="cta.contact">Contact us</a>
+                <a href="#" class="btn btn-secondary" data-i18n="cta.sample">Request a sample</a>
+                <a href="#" class="btn btn-secondary" data-i18n="cta.catalog">Download catalog</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section faq" id="faq">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-i18n="faq.title">Frequently Asked Questions</h2>
+            <p data-i18n="faq.subtitle">Get answers to the most common questions about Formdrill</p>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3 data-i18n="faq.q1">What materials can I use with Formdrill?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="faq.a1">Formdrill works with various metals and alloys including steel, stainless steel, aluminum, copper, brass, and high-strength alloys. The system is compatible with most metallic materials with a wall thickness of 0.5mm to 4mm.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3 data-i18n="faq.q2">Do I need special equipment to use Formdrill?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="faq.a2">No special equipment is required. Formdrill works with standard drill presses, CNC machines, or machining centers. The process only requires the Formdrill tool and corresponding Formtap, which can be used with your existing machinery.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3 data-i18n="faq.q3">How does Formdrill compare to welded nuts or threaded inserts?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="faq.a3">Compared to welded nuts or threaded inserts, Formdrill offers significant advantages: up to 90% cost savings, faster production time (seconds instead of minutes), no additional components needed, stronger connection strength, and a cleaner process with no welding slag or chips.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3 data-i18n="faq.q4">What thread sizes can be created with Formdrill?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="faq.a4">Formdrill can create thread sizes from M3 to M12 (or equivalent in other standards) depending on the material thickness. Each application requires the appropriate Formdrill tool size and corresponding Formtap. Our technical team can help determine the optimal thread size for your specific application.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3 data-i18n="faq.q5">How long do Formdrill tools last?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="faq.a5">Formdrill tools are exceptionally durable. With proper use and cooling, a single tool can typically perform several thousand operations before replacement is needed. The exact lifespan depends on the material being processed, cooling conditions, and operation parameters.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 data-i18n="footer.about.title">About Formdrill</h3>
+                    <p data-i18n="footer.about.desc">Formdrill is a market leader for innovative threading solutions in the manufacturing industry. Thousands of companies worldwide trust our technology.</p>
+                    <div class="social-links">
+                        <a href="#">f</a>
+                        <a href="#">in</a>
+                        <a href="#">yt</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 data-i18n="footer.products.title">Products</h3>
+                    <ul>
+                        <li><a href="#" data-i18n="footer.products.tools">Formdrill Tools</a></li>
+                        <li><a href="#" data-i18n="footer.products.taps">Formtap Threading Taps</a></li>
+                        <li><a href="#" data-i18n="footer.products.accessories">Accessories</a></li>
+                        <li><a href="#" data-i18n="footer.products.wizard">Tool Wizard</a></li>
+                        <li><a href="#" data-i18n="footer.products.examples">Application Examples</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 data-i18n="footer.resources.title">Resources</h3>
+                    <ul>
+                        <li><a href="#" data-i18n="footer.resources.tech_data">Technical Data</a></li>
+                        <li><a href="#" data-i18n="footer.resources.downloads">Downloads</a></li>
+                        <li><a href="#" data-i18n="footer.resources.faq">FAQ</a></li>
+                        <li><a href="#" data-i18n="footer.resources.videos">Videos</a></li>
+                        <li><a href="#" data-i18n="footer.resources.news">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 data-i18n="footer.contact.title">Contact</h3>
+                    <ul>
+                        <li data-i18n="footer.contact.company">Formdrill Ltd.</li>
+                        <li data-i18n="footer.contact.street">123 Sample Street</li>
+                        <li data-i18n="footer.contact.city">12345 Sample City</li>
+                        <li data-i18n="footer.contact.phone">+49 123 456789</li>
+                        <li data-i18n="footer.contact.email">info@formdrill.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p data-i18n="footer.copyright">© 2025 Formdrill. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>   
+</body>
+
