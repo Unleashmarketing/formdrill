@@ -766,88 +766,6 @@ footer {
     border-radius: 50%;
 }
 
-/* Responsive design - basic layout */
-@media (max-width: 992px) {
-    .benefits-list {
-        grid-template-columns: 1fr;
-    }
-    
-    .formdrill-overview {
-        flex-direction: column;
-    }
-    
-    .materials-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .advantages-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    nav ul {
-        margin-top: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    nav ul li {
-        margin: 5px 10px;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-    
-    .process-steps {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-    
-    .process-steps::before {
-        top: 40px;
-        bottom: 40px;
-        left: 50%;
-        width: 4px;
-        height: auto;
-    }
-    
-    .materials-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .advantages-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .section-title h2 {
-        font-size: 2rem;
-    }
-}
-
 /* FAQ Accordion */
 .faq {
     background-color: var(--light);
@@ -929,9 +847,76 @@ footer {
     .comparison-slider {
         height: 350px;
     }
+    
+    .benefits-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .formdrill-overview {
+        flex-direction: column;
+    }
+    
+    .materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .process-steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .process-steps::before {
+        top: 40px;
+        bottom: 40px;
+        left: 50%;
+        width: 4px;
+        height: auto;
+    }
+    
+    .materials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
     .comparison-slider {
         height: 300px;
     }
@@ -942,6 +927,14 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
     .comparison-slider {
         height: 250px;
     }
@@ -957,7 +950,11 @@ footer {
     }
 }
 
-/* Interactive Process Visualization */
+/* ==========================================
+   NEUE UND VERBESSERTE STYLES AB HIER
+   ========================================== */
+
+/* Interactive Process Visualization - NEU */
 .process-interactive-container {
     margin-bottom: 60px;
 }
@@ -991,13 +988,9 @@ footer {
     transition: opacity 0.3s ease;
 }
 
-.process-image.active {
-    opacity: 1;
-}
-
+/* Remove any opacity transitions that might interfere */
 .process-image {
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    opacity: 1 !important;
 }
 
 .process-hotspot {
@@ -1048,6 +1041,7 @@ footer {
     justify-content: space-between;
     padding: 0;
     position: relative;
+    height: 60px; /* Fixed height for the indicator */
 }
 
 .process-stage-indicator::before {
@@ -1116,11 +1110,12 @@ footer {
 
 .process-info {
     padding: 30px;
+    height: 400px;
+    overflow-y: auto;
 }
 
 .process-info-content {
     display: none;
-    animation: fadeIn 0.5s ease forwards;
 }
 
 .process-info-content.active {
@@ -1225,71 +1220,12 @@ footer {
     }
 }
 
-/* Responsive adjustments */
-@media (min-width: 992px) {
-    .process-visualization {
-        flex-direction: row;
-        height: 500px; /* Set a fixed height for the whole container */
-    }
-    
-    .process-display {
-        width: 50%;
-        height: 100%; /* Make it take full height of parent */
-    }
-    
-    .process-info {
-        width: 50%;
-        height: 100%; /* Make it take full height of parent */
-        overflow-y: auto; /* Allow scrolling for content if needed */
-    }
-    
-    .process-image-container {
-        height: calc(100% - 60px); /* Subtract the height of the stage indicator */
-    }
-}
-
-@media (max-width: 768px) {
-    .process-image-container {
-        height: 300px;
-    }
-    
-    .process-specs {
-        grid-template-columns: 1fr;
-    }
-    
-    .hotspot-1 {
-        top: 20%;
-        left: 20%;
-    }
-
-    .hotspot-2 {
-        top: 50%;
-        left: 50%;
-    }
-
-    .hotspot-3 {
-        top: 20%;
-        left: 80%;
-    }
-}
-
-@media (max-width: 480px) {
-    .process-image-container {
-        height: 250px;
-    }
-    
-    .process-hotspot {
-        width: 25px;
-        height: 25px;
-        font-size: 12px;
-    }
-}
-
-/* Cost Savings Calculator */
+/* Cost Savings Calculator - NEU */
 .calculator {
     background-color: var(--light);
     position: relative;
     overflow: hidden;
+    padding: 80px 0;
 }
 
 .calculator-container {
@@ -1467,8 +1403,64 @@ input[type="range"]::-webkit-slider-thumb {
     justify-content: center;
 }
 
-/* Responsive adjustments */
+/* Make sure the button is properly styled */
+#reset-calculator {
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsive adjustments for Interactive Process and Calculator */
+@media (min-width: 992px) {
+    .process-visualization {
+        flex-direction: row;
+        height: 460px; /* Set a fixed height for the whole container */
+    }
+    
+    .process-display {
+        width: 50%;
+        height: 100%; /* Make it take full height of parent */
+    }
+    
+    .process-info {
+        width: 50%;
+        height: 100%; /* Make it take full height of parent */
+        overflow-y: auto; /* Allow scrolling for content if needed */
+    }
+    
+    .process-image-container {
+        height: calc(100% - 60px); /* Subtract the height of the stage indicator */
+    }
+}
+
 @media (max-width: 768px) {
+    .process-image-container {
+        height: 300px;
+    }
+    
+    .process-specs {
+        grid-template-columns: 1fr;
+    }
+    
+    .hotspot-1 {
+        top: 20%;
+        left: 20%;
+    }
+
+    .hotspot-2 {
+        top: 50%;
+        left: 50%;
+    }
+
+    .hotspot-3 {
+        top: 20%;
+        left: 80%;
+    }
+    
+    .process-info {
+        height: auto;
+        max-height: 400px;
+    }
+    
     .form-row, .calculator-comparison {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1481,5 +1473,17 @@ input[type="range"]::-webkit-slider-thumb {
     .calculator-cta .btn {
         width: 100%;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .process-image-container {
+        height: 250px;
+    }
+    
+    .process-hotspot {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
     }
 }
